@@ -1,0 +1,167 @@
+.admin-page {
+  padding: 28px 0;
+  min-height: calc(100vh - 60px);
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Appointments */
+.appt-list { display: flex; flex-direction: column; gap: 10px; }
+
+.appt-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  transition: opacity 0.2s;
+}
+
+.appt-card.completed { opacity: 0.5; border-color: var(--success); }
+
+.appt-time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
+  gap: 2px;
+}
+
+.time-sep { color: var(--text-secondary); font-size: 10px; }
+
+.appt-info { flex: 1; }
+.appt-customer { font-size: 14px; margin-bottom: 3px; }
+.appt-service { font-size: 13px; color: var(--text-secondary); }
+
+.walk-in-badge {
+  font-size: 11px;
+  background: rgba(255,152,0,0.2);
+  color: var(--warning);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 4px;
+}
+
+.appt-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.check-label input { accent-color: var(--primary); width: 18px; height: 18px; }
+
+/* Services */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.income-card {
+  margin-bottom: 24px;
+  border-color: var(--primary);
+}
+
+.income-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.income-icon { font-size: 32px; }
+
+.income-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.income-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.income-total {
+  margin-left: auto;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.income-breakdown {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.breakdown-service { color: var(--text-primary); }
+
+.breakdown-amount {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.breakdown-total {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  margin-top: 4px;
+}
+
+.income-empty {
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-align: center;
+  padding: 8px 0;
+}
+.income-toggle {
+  margin-bottom: 4px;
+  border-color: var(--primary);
+  transition: all 0.2s;
+}
+
+.income-toggle:hover {
+  background: rgba(201,168,76,0.05);
+}

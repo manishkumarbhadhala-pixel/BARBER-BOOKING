@@ -1,0 +1,214 @@
+.user-page {
+  padding: 28px 0;
+  min-height: calc(100vh - 60px);
+}
+
+.section-block { margin-bottom: 28px; }
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* My Booking Card */
+.my-booking {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.booking-details { flex: 1; }
+
+.booking-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.booking-icon { font-size: 16px; }
+
+.booking-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.upcoming {
+  background: rgba(255,152,0,0.2);
+  color: var(--warning);
+}
+
+.empty-box {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-secondary);
+}
+
+/* Timeline */
+.timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.timeline-bar {
+  position: relative;
+  height: 32px;
+  background: var(--bg-input);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.busy-slot {
+  position: absolute;
+  height: 100%;
+  background: var(--error);
+  opacity: 0.7;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.busy-slot:hover { opacity: 1; }
+
+.timeline-legend {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.legend-busy { color: var(--error); }
+.legend-free { color: var(--success); }
+
+/* Book Appointment */
+.book-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+
+.step-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Service Options */
+.service-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.service-option {
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.service-option:hover { border-color: var(--primary); }
+.service-option.selected { border-color: var(--primary); background: rgba(201,168,76,0.1); }
+
+.service-option-icon { font-size: 28px; margin-bottom: 8px; }
+.service-option-name { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+.service-option-price { font-size: 16px; color: var(--primary); font-weight: 700; }
+.service-option-duration { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+
+/* Slots */
+.slots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 8px;
+}
+
+.slot-btn {
+  padding: 10px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.slot-btn:hover:not(:disabled) { border-color: var(--primary); }
+.slot-btn.slot-selected { border-color: var(--primary); background: rgba(201,168,76,0.15); }
+.slot-btn.slot-busy { opacity: 0.4; cursor: not-allowed; }
+.slot-status { font-size: 10px; }
+
+/* Summary */
+
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.summary-row strong { color: var(--text-primary); }
+/* ```
+
+---
+
+## STEP 4 — Test karo
+
+**2 terminals chal rahi honi chahiye:**
+```
+Terminal 1: cd backend → npm run dev
+Terminal 2: cd frontend → npm run dev
+```
+
+Browser me test karo:
+
+1. **Customer login karo** → `/my-slot` pe jao
+   - Timeline dikhegi
+   - "Koi booking nahi" dikhega
+
+2. **Book karo** → `/book` pe jao
+   - Service choose karo
+   - Date choose karo
+   - Slot choose karo
+   - Confirm karo
+
+3. **My Slot** pe wapas jao
+   - Booking dikhegi
+   - Cancel button dikhega
+
+4. **Admin se login karo** → Dashboard pe booking dikhegi ✅
+
+---
+

@@ -1,0 +1,183 @@
+:root {
+  --primary: #c9a84c;
+  --primary-dark: #a8883a;
+  --bg-dark: #0f0f0f;
+  --bg-card: #1a1a1a;
+  --bg-input: #242424;
+  --text-primary: #f0f0f0;
+  --text-secondary: #888;
+  --border: #2e2e2e;
+  --success: #4caf50;
+  --error: #f44336;
+  --warning: #ff9800;
+  --radius: 10px;
+}
+
+/* Light mode variables yahan add kar diye hain */
+[data-theme="light"] {
+  --primary: #c9a84c;
+  --primary-dark: #a8883a;
+  --bg-dark: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-input: #eeeeee;
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --border: #dddddd;
+  --success: #2e7d32;
+  --error: #c62828;
+  --warning: #e65100;
+  --radius: 10px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background 0.2s, color 0.2s; /* Smooth transition effect */
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary { background: var(--primary); color: #000; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-danger { background: transparent; color: var(--error); border: 1px solid var(--error); }
+.btn-danger:hover { background: var(--error); color: #fff; }
+.btn-outline { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+.btn-outline:hover { background: var(--primary); color: #000; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--text-secondary); }
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 14px;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus { border-color: var(--primary); }
+
+.alert { padding: 12px 16px; border-radius: var(--radius); margin-bottom: 16px; font-size: 14px; }
+.alert-error { background: rgba(244,67,54,0.15); border: 1px solid var(--error); color: #ff7961; }
+.alert-success { background: rgba(76,175,80,0.15); border: 1px solid var(--success); color: #81c784; }
+
+.loading { display: flex; justify-content: center; padding: 40px; color: var(--text-secondary); }
+
+.page-title { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 6px; }
+.page-subtitle { color: var(--text-secondary); font-size: 14px; margin-bottom: 24px; }
+
+/* ---- MOBILE RESPONSIVE (ADDED AT END) ---- */
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 22px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .navbar {
+    padding: 0 12px;
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 8px;
+  }
+
+  .navbar-brand {
+    font-size: 16px;
+  }
+
+  .navbar-links {
+    gap: 4px;
+  }
+
+  .navbar-links a {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .navbar-right {
+    font-size: 12px;
+  }
+
+  .navbar-right .btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .my-booking {
+    flex-direction: column;
+  }
+
+  .booking-action {
+    width: 100%;
+  }
+
+  .booking-action .btn {
+    width: 100%;
+  }
+
+  .service-options {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  }
+
+  .slots-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+  }
+
+  .appt-card {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-header {
+    flex-direction: column;
+  }
+
+  .time-row {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-row {
+    font-size: 13px;
+  }
+
+  .auth-card {
+    padding: 20px 16px;
+  }
+}
