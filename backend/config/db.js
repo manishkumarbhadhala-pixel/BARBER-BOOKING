@@ -8,6 +8,7 @@ const sequelize = new Sequelize(
   process.env.DB_PASSWORD,  // password
   {
     host: process.env.DB_HOST,
+     port: process.env.DB_PORT,
     dialect: 'mysql',
     logging: false, // SQL queries terminal me mat dikhao
   }
