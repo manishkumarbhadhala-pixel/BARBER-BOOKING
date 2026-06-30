@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  // baseURL: 'https://barber-booking-production.up.railway.app/api',
-  baseURL: 'http://localhost:5000/api', // Railway URL ki jagah
+  baseURL: 'barber-booking-production-95f5.up.railway.app',
+  // baseURL: 'http://localhost:5000/api', // Railway URL ki jagah
 });
 
 // Har request me automatically token add ho

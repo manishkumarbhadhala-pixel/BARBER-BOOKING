@@ -1,9 +1,8 @@
 import { io } from 'socket.io-client';
 
-// Local dev ke liye localhost, production ke liye Railway URL
 const SOCKET_URL = import.meta.env.VITE_API_URL 
   ? import.meta.env.VITE_API_URL.replace('/api', '') 
-  : 'http://localhost:5000';
+  : 'https://barber-booking-production-95f5.up.railway.app';
 
 let socket = null;
 
@@ -11,7 +10,7 @@ export const connectSocket = (userId) => {
   if (socket?.connected) return socket;
 
   socket = io(SOCKET_URL, {
-    transports: ['polling', 'websocket'], // polling se start karo, websocket pe upgrade hoga
+    transports: ['polling', 'websocket'],
   });
 
   socket.on('connect', () => {
