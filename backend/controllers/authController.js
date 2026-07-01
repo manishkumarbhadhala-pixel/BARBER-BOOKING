@@ -100,13 +100,13 @@ if (role === 'admin') {
   }
 
   // APPROVAL BYPASS — Direct admin create karo
-  const salt = await bcrypt.genSalt(10);
-  const hashedPassword = await bcrypt.hash(password, salt);
+  // const salt = await bcrypt.genSalt(10);
+  // const hashedPassword = await bcrypt.hash(password, salt);
 
   await User.create({
     name,
     email,
-    password: hashedPassword,
+    password,
     role: 'admin',
     shopId: shop.id,
   });
