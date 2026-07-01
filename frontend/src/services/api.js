@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'barber-booking-production-3f2d.up.railway.app',
+  baseURL: 'https://barber-booking-lvx4.onrender.com',
   // baseURL: 'http://localhost:5000/api', // Railway URL ki jagah
 });
 
