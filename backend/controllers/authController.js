@@ -47,40 +47,76 @@ const registerUser = async (req, res) => {
     }
 
     // ---- Admin Request ----
-    if (role === 'admin') {
-      if (!shopCode) {
-        return res.status(400).json({ message: 'Shop code is required for admin' });
-      }
+    // if (role === 'admin') {
+    //   if (!shopCode) {
+    //     return res.status(400).json({ message: 'Shop code is required for admin' });
+    //   }
 
-      const shop = await Shop.findOne({ where: { shopCode } });
-      if (!shop) {
-        return res.status(404).json({ message: 'Invalid shop code' });
-      }
+    //   const shop = await Shop.findOne({ where: { shopCode } });
+    //   if (!shop) {
+    //     return res.status(404).json({ message: 'Invalid shop code' });
+    //   }
 
-      const requestExists = await AdminRequest.findOne({ where: { email } });
-      if (requestExists) {
-        return res.status(400).json({ message: 'A request already exists for this email' });
-      }
+    //   const requestExists = await AdminRequest.findOne({ where: { email } });
+    //   if (requestExists) {
+    //     return res.status(400).json({ message: 'A request already exists for this email' });
+    //   }
 
-      const userExists = await User.findOne({ where: { email } });
-      if (userExists) {
-        return res.status(400).json({ message: 'This email is already registered' });
-      }
+    //   const userExists = await User.findOne({ where: { email } });
+    //   if (userExists) {
+    //     return res.status(400).json({ message: 'This email is already registered' });
+    //   }
 
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
+    //   const salt = await bcrypt.genSalt(10);
+    //   const hashedPassword = await bcrypt.hash(password, salt);
 
-      await AdminRequest.create({ 
-        name, 
-        email, 
-        password: hashedPassword,
-        shopId: shop.id,
-      });
+    //   await AdminRequest.create({ 
+    //     name, 
+    //     email, 
+    //     password: hashedPassword,
+    //     shopId: shop.id,
+    //   });
 
-      return res.status(201).json({ 
-        message: 'Admin request sent! Please wait for Super Admin approval.' 
-      });
-    }
+    //   return res.status(201).json({ 
+    //     message: 'Admin request sent! Please wait for Super Admin approval.' 
+    //   });
+    // }
+
+    //--------------
+    // ---- Admin Request ---- ye poora block replace karo:
+if (role === 'admin') {
+  if (!shopCode) {
+    return res.status(400).json({ message: 'Shop code is required for admin' });
+  }
+
+  const shop = await Shop.findOne({ where: { shopCode } });
+  if (!shop) {
+    return res.status(404).json({ message: 'Invalid shop code' });
+  }
+
+  const userExists = await User.findOne({ where: { email } });
+  if (userExists) {
+    return res.status(400).json({ message: 'This email is already registered' });
+  }
+
+  // APPROVAL BYPASS — Direct admin create karo
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  await User.create({
+    name,
+    email,
+    password: hashedPassword,
+    role: 'admin',
+    shopId: shop.id,
+  });
+
+  return res.status(201).json({
+    message: 'Admin account created successfully! You can now login.'
+  });
+}
+
+//--------------------------------------------------
 
   } catch (error) {
     res.status(500).json({ message: error.message });
