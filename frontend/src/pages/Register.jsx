@@ -161,7 +161,7 @@ const Register = () => {
               <label>Shop Code</label>
               <input
                 type="text"
-                placeholder="e.g. ABC123"
+                placeholder="Use code: ABC123"
                 value={form.shopCode}
                 onChange={(e) => setForm({ ...form, shopCode: e.target.value.toUpperCase() })}
                 style={{ textTransform: 'uppercase', letterSpacing: 2 }}

@@ -79,7 +79,7 @@ const ShopEntry = () => {
             <label>Shop Code</label>
             <input
               type="text"
-              placeholder="Use code : ABC123"
+              placeholder="e.g. ABC123"
               value={shopCode}
               onChange={(e) => setShopCode(e.target.value.toUpperCase())}
               autoComplete="off"
