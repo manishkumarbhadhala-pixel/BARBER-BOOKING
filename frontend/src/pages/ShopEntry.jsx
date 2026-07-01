@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const ShopEntry = () => {
-  const [shopCode, setShopCode] = useState('');
+  const [shopCode, setShopCode] = useState('ABC123');
   const [verifying, setVerifying] = useState(false); // Form submission loader
   const [error, setError] = useState('');
   
