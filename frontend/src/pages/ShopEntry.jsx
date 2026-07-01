@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const ShopEntry = () => {
-  const [shopCode, setShopCode] = useState('ABC123');
+  const [shopCode, setShopCode] = useState('');
   const [verifying, setVerifying] = useState(false); // Form submission loader
   const [error, setError] = useState('');
   
@@ -79,7 +79,7 @@ const ShopEntry = () => {
             <label>Shop Code</label>
             <input
               type="text"
-              placeholder="e.g. ABC123"
+              placeholder="Use this code : ABC123"
               value={shopCode}
               onChange={(e) => setShopCode(e.target.value.toUpperCase())}
               autoComplete="off"
